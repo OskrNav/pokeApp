@@ -8,7 +8,7 @@ target 'pokeApp' do
   # Pods for pokeApp
 
   pod 'FirebaseUI'
-
+ pod 'PokemonKit'
   target 'pokeAppTests' do
     inherit! :search_paths
     # Pods for testing
