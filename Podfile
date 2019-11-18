@@ -4,11 +4,9 @@
 target 'pokeApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
   # Pods for pokeApp
-
   pod 'FirebaseUI'
- pod 'PokemonKit'
+  pod 'XXXRoundMenuButton'
   target 'pokeAppTests' do
     inherit! :search_paths
     # Pods for testing
