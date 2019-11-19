@@ -1,8 +1,4 @@
 PODS:
-  - Alamofire (3.5.1)
-  - AlamofireObjectMapper (2.1.2):
-    - Alamofire (~> 3.2)
-    - ObjectMapper (~> 1.0)
   - AppAuth (1.2.0):
     - AppAuth/Core (= 1.2.0)
     - AppAuth/ExternalUserAgent (= 1.2.0)
@@ -169,23 +165,18 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
-  - ObjectMapper (1.5.0)
-  - PokemonKit (2.0.1):
-    - Alamofire (~> 3.0)
-    - AlamofireObjectMapper (~> 2.1)
   - Protobuf (3.10.0)
   - SDWebImage (5.3.1):
     - SDWebImage/Core (= 5.3.1)
   - SDWebImage/Core (5.3.1)
+  - XXXRoundMenuButton (1.0.3)
 
 DEPENDENCIES:
   - FirebaseUI
-  - PokemonKit
+  - XXXRoundMenuButton
 
 SPEC REPOS:
   trunk:
-    - Alamofire
-    - AlamofireObjectMapper
     - AppAuth
     - BoringSSL-GRPC
     - FBSDKCoreKit
@@ -210,14 +201,11 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
-    - ObjectMapper
-    - PokemonKit
     - Protobuf
     - SDWebImage
+    - XXXRoundMenuButton
 
 SPEC CHECKSUMS:
-  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
-  AlamofireObjectMapper: 82391c31f23e37bdb2660da174bcf81b202da39d
   AppAuth: bce82c76043657c99d91e7882e8a9e1a93650cd4
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   FBSDKCoreKit: d6655a343868d4bb5c29a60859bab07c3be14a0b
@@ -242,11 +230,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
-  ObjectMapper: 386645adca9d9d23b95eda43090b09d66444cf14
-  PokemonKit: 6ea926de24589ceb5ca34c17551491eff602439a
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
   SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
+  XXXRoundMenuButton: 8a7b47d34e0c2f470c2bea72ad4d3db919750f78
 
-PODFILE CHECKSUM: 90ff423f99d0845d55ab563088b8917f8d90da8d
+PODFILE CHECKSUM: 378e5563125bdd4a59e96597aae63c2f8e8e7e05
 
 COCOAPODS: 1.8.4

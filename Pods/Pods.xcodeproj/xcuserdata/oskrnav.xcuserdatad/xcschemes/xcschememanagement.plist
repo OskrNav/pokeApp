@@ -249,6 +249,11 @@
 			<key>orderHint</key>
 			<integer>39</integer>
 		</dict>
+		<key>XXXRoundMenuButton.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>41</integer>
+		</dict>
 		<key>gRPC-C++-gRPCCertificates-Cpp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
