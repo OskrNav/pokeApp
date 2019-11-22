@@ -12,11 +12,21 @@ import FirebaseDatabase
 class regionsViewController: UIViewController {
 
     var region:Region?
-    let ref = Database.database().reference(withPath: "teams")
+    var ref: DatabaseReference!
     
+   
+
+    var rootRef = Database.database().reference()
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        rootRef = Database.database().reference(withPath: "teams")
+        var refHandle = rootRef.observe(DataEventType.value, with: { (snapshot) in
+          let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+          print(postDict)
+        })
+        print("===== ref ===========")
+        
         getData()
     }
 }
@@ -31,7 +41,7 @@ extension regionsViewController{
         request.method = "GET"
         request.sendRequest(){(response:JSON) in
             self.region = Region(data: response)
-            
+            print(self.region)
         }
     }
 }
