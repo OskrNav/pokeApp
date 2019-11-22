@@ -7,40 +7,31 @@
 //
 
 import UIKit
-import XXXRoundMenuButton
+import FirebaseDatabase
+
 class regionsViewController: UIViewController {
 
+    var region:Region?
+    let ref = Database.database().reference(withPath: "teams")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let buttonMenu = XXXRoundMenuButton();
-               self.view.addSubview(buttonMenu);
-        print( self.view.frame.size.width)
-        buttonMenu.frame = CGRect(x: self.view.frame.size.width  - 200 , y: self.view.frame.size.height - 200, width: 200, height: 200);
-        buttonMenu.centerButtonSize = CGSize(width: 44, height: 44);
-        buttonMenu.tintColor = UIColor.white;
-        buttonMenu.jumpOutButtonOnebyOne = true;
-        
-        buttonMenu.load(withIcons: [UIImage(named: "icon_can")!,UIImage(named: "icon_pos")!,UIImage(named: "icon_img")!], startDegree: Float(-M_PI), layoutDegree: Float(M_PI/2))
-               
-               buttonMenu.buttonClickBlock =  {(idx:NSInteger)-> Void in
-                   NSLog("%d", idx);
-               };
-        
+    
         getData()
     }
 }
 
 
 //MARK : Get Data about Pokemon Regions
-
 extension regionsViewController{
     func getData() {
         let request = Request()
-        request.path = "region/1"
+        let regionID:Int = (GeneralSettings.DefaultIDRegion == 0) ? 1 : GeneralSettings.DefaultIDRegion
+        request.path = "region/\(regionID)"
         request.method = "GET"
-        request.sendRequest(){(response:JSON) in 
+        request.sendRequest(){(response:JSON) in
+            self.region = Region(data: response)
             
-            print(response)
         }
     }
 }
