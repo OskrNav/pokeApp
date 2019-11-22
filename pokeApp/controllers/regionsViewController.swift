@@ -12,7 +12,6 @@ class regionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let buttonMenu = XXXRoundMenuButton();
                self.view.addSubview(buttonMenu);
         print( self.view.frame.size.width)

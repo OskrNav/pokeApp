@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "162E649F50FEC62B61BDD87D1BD422B4"
-               BuildableName = "ObjectMapper.framework"
-               BlueprintName = "ObjectMapper"
+               BlueprintIdentifier = "F24E56FF8F3999618A11FEB82059B9E9"
+               BuildableName = "XXXRoundMenuButton.framework"
+               BlueprintName = "XXXRoundMenuButton"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
