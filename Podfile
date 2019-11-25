@@ -8,7 +8,12 @@ target 'pokeApp' do
   pod 'FirebaseUI'
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
+  pod 'NVActivityIndicatorView'
+  pod 'AlamofireImage', '~> 3.3'
   pod 'XXXRoundMenuButton'
+  pod 'SCLAlertView'
   target 'pokeAppTests' do
     inherit! :search_paths
     # Pods for testing

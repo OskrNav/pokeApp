@@ -22,6 +22,11 @@
 		55C06043237B691F00D8583B /* pokeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C06042237B691F00D8583B /* pokeAppUITests.swift */; };
 		55C06057237C6DD000D8583B /* regionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C06056237C6DD000D8583B /* regionsViewController.swift */; };
 		79B562B2237BB5E40026003C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79B562B1237BB5E40026003C /* GoogleService-Info.plist */; };
+		79E63DB0238B37770088EC18 /* pokeListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E63DAF238B37770088EC18 /* pokeListViewCell.swift */; };
+		79E63DB2238B39560088EC18 /* addPokeTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E63DB1238B39560088EC18 /* addPokeTeamViewController.swift */; };
+		79E63DB4238B3F860088EC18 /* pokedex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E63DB3238B3F860088EC18 /* pokedex.swift */; };
+		79E63DB7238B83840088EC18 /* protocolsandExtends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E63DB6238B83840088EC18 /* protocolsandExtends.swift */; };
+		79E63DB9238B94BE0088EC18 /* teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E63DB8238B94BE0088EC18 /* teams.swift */; };
 		876222C5898B8A38CADA4067 /* Pods_pokeApp_pokeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA27207F05490488DE264EA4 /* Pods_pokeApp_pokeAppUITests.framework */; };
 		AF205A222AA6022473A20E76 /* Pods_pokeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91C7A83F9769707764A76F96 /* Pods_pokeApp.framework */; };
 		B26762C11F9866EC16EEA89F /* Pods_pokeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 678A983AB898436F54B4D4EC /* Pods_pokeAppTests.framework */; };
@@ -71,6 +76,11 @@
 		678A983AB898436F54B4D4EC /* Pods_pokeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pokeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72167F3FF34F0392115BF1D5 /* Pods-pokeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokeApp.release.xcconfig"; path = "Target Support Files/Pods-pokeApp/Pods-pokeApp.release.xcconfig"; sourceTree = "<group>"; };
 		79B562B1237BB5E40026003C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		79E63DAF238B37770088EC18 /* pokeListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokeListViewCell.swift; sourceTree = "<group>"; };
+		79E63DB1238B39560088EC18 /* addPokeTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPokeTeamViewController.swift; sourceTree = "<group>"; };
+		79E63DB3238B3F860088EC18 /* pokedex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokedex.swift; sourceTree = "<group>"; };
+		79E63DB6238B83840088EC18 /* protocolsandExtends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocolsandExtends.swift; sourceTree = "<group>"; };
+		79E63DB8238B94BE0088EC18 /* teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teams.swift; sourceTree = "<group>"; };
 		91C7A83F9769707764A76F96 /* Pods_pokeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pokeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		980B91F032FA7AF7DB782A28 /* Pods-pokeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-pokeAppTests/Pods-pokeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BA27207F05490488DE264EA4 /* Pods_pokeApp_pokeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pokeApp_pokeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +122,7 @@
 				550EEA64237C6F4E009888EC /* request.swift */,
 				550EEA65237C6F50009888EC /* SwiftyJSON.swift */,
 				550EEA68237C6F74009888EC /* settings.swift */,
+				79E63DB6238B83840088EC18 /* protocolsandExtends.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -120,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				550EEA6D237C7272009888EC /* region.swift */,
+				79E63DB3238B3F860088EC18 /* pokedex.swift */,
+				79E63DB8238B94BE0088EC18 /* teams.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -184,6 +197,8 @@
 			children = (
 				55C06024237B691B00D8583B /* ViewController.swift */,
 				55C06056237C6DD000D8583B /* regionsViewController.swift */,
+				79E63DAF238B37770088EC18 /* pokeListViewCell.swift */,
+				79E63DB1238B39560088EC18 /* addPokeTeamViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -505,14 +520,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79E63DB4238B3F860088EC18 /* pokedex.swift in Sources */,
 				55C06057237C6DD000D8583B /* regionsViewController.swift in Sources */,
 				55C06025237B691B00D8583B /* ViewController.swift in Sources */,
 				550EEA6B237C6FEF009888EC /* errir.swift in Sources */,
+				79E63DB0238B37770088EC18 /* pokeListViewCell.swift in Sources */,
+				79E63DB2238B39560088EC18 /* addPokeTeamViewController.swift in Sources */,
 				55C06021237B691B00D8583B /* AppDelegate.swift in Sources */,
 				550EEA6E237C7272009888EC /* region.swift in Sources */,
 				550EEA67237C6F50009888EC /* SwiftyJSON.swift in Sources */,
 				550EEA66237C6F50009888EC /* request.swift in Sources */,
+				79E63DB9238B94BE0088EC18 /* teams.swift in Sources */,
 				550EEA69237C6F74009888EC /* settings.swift in Sources */,
+				79E63DB7238B83840088EC18 /* protocolsandExtends.swift in Sources */,
 				55C06023237B691B00D8583B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

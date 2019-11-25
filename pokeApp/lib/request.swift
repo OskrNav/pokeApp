@@ -14,6 +14,7 @@ class Request : NSObject , URLSessionDelegate {
     var header:[String:AnyObject] = [:]
     var params:[String:Any] = [:]
     var method : String = "POST"
+    var isCompleteURL:Bool = false
     
     func buildURl() -> URL{
         let baseUrl = GeneralSettings.BASE_URL
@@ -23,10 +24,10 @@ class Request : NSObject , URLSessionDelegate {
         
         // create post request
         
-        let url = buildURl()
+        let url = (isCompleteURL) ? URL(string: path) : buildURl()
         print("URL = \(url)")
         print(params)
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: url!)
         request.httpMethod = method
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")

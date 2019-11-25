@@ -1,4 +1,7 @@
 PODS:
+  - Alamofire (4.9.1)
+  - AlamofireImage (3.6.0):
+    - Alamofire (~> 4.9)
   - AppAuth (1.2.0):
     - AppAuth/Core (= 1.2.0)
     - AppAuth/ExternalUserAgent (= 1.2.0)
@@ -86,6 +89,8 @@ PODS:
     - leveldb-library (~> 1.22)
     - nanopb (~> 0.3.901)
     - Protobuf (>= 3.9.2, ~> 3.9)
+  - FirebaseFirestoreSwift (0.2):
+    - FirebaseFirestore (>= 1.6.1, ~> 1.6)
   - FirebaseInstanceID (4.2.7):
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
@@ -191,20 +196,31 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
   - Protobuf (3.10.0)
+  - SCLAlertView (0.8)
   - SDWebImage (5.3.1):
     - SDWebImage/Core (= 5.3.1)
   - SDWebImage/Core (5.3.1)
   - XXXRoundMenuButton (1.0.3)
 
 DEPENDENCIES:
+  - AlamofireImage (~> 3.3)
   - Firebase/Analytics
   - Firebase/Database
+  - Firebase/Firestore
+  - FirebaseFirestoreSwift
   - FirebaseUI
+  - NVActivityIndicatorView
+  - SCLAlertView
   - XXXRoundMenuButton
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - AlamofireImage
     - AppAuth
     - BoringSSL-GRPC
     - FBSDKCoreKit
@@ -218,6 +234,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnosticsInterop
     - FirebaseDatabase
     - FirebaseFirestore
+    - FirebaseFirestoreSwift
     - FirebaseInstanceID
     - FirebaseStorage
     - FirebaseUI
@@ -232,11 +249,15 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - NVActivityIndicatorView
     - Protobuf
+    - SCLAlertView
     - SDWebImage
     - XXXRoundMenuButton
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
   AppAuth: bce82c76043657c99d91e7882e8a9e1a93650cd4
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   FBSDKCoreKit: d6655a343868d4bb5c29a60859bab07c3be14a0b
@@ -250,6 +271,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnosticsInterop: e9b1b023157e3a2fc6418b5cb601e79b9af7b3a0
   FirebaseDatabase: 963515d232ded06f36f6ce830507c94551866170
   FirebaseFirestore: 1c7ed32c09d6b0148034e035d0c07783ca45bac3
+  FirebaseFirestoreSwift: 0437bb10d83f8161a9131da1739998254c78fdf5
   FirebaseInstanceID: ebd2ea79ee38db0cb5f5167b17a0d387e1cc7b6e
   FirebaseStorage: b7c6d00997bc21d4465453bdcc5cc65513110fed
   FirebaseUI: 826359d83af7cd76bfe0d43a8aab11eabac65558
@@ -264,10 +286,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
   XXXRoundMenuButton: 8a7b47d34e0c2f470c2bea72ad4d3db919750f78
 
-PODFILE CHECKSUM: 758016b6f309f810767939bdac0189ea50563100
+PODFILE CHECKSUM: 42976f7802dbf5fbfaf810bab7690e074cdeafdf
 
 COCOAPODS: 1.8.4
