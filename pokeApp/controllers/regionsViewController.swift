@@ -15,14 +15,15 @@ class regionsViewController: UIViewController {
     var region:Region?
     let db = Firestore.firestore()
     var teams:[Team] = []
-    @IBOutlet weak var listTeam:UITableView!
     
+    @IBOutlet weak var listTeam:UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Teams"
         getData()
         getTeams()
+        listTeam.tableFooterView = UIView()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -30,6 +31,24 @@ class regionsViewController: UIViewController {
             let controller = segue.destination as! addPokeTeamViewController
             controller.region = self.region
             controller.delegate = self
+        }
+        
+        if segue.identifier == "editTeamSegue"{
+            let controller = segue.destination as! addPokeTeamViewController
+            controller.region = self.region
+            controller.delegate = self
+            let selecteTeam = self.teams[sender as! Int]
+            controller.selectedTeam = selecteTeam.pokemon
+            controller.isEdit = true
+            controller.nameTeam = selecteTeam.team_name
+            controller.documentID = selecteTeam.document_id
+        }
+        
+        if segue.identifier == "viewTeamSegue"{
+            let controller = segue.destination as! TeamDetailsViewController
+            let indexPath = listTeam.indexPathForSelectedRow
+            let teamSelected = self.teams[indexPath!.row]
+            controller.team = teamSelected
         }
     }
 }
@@ -50,8 +69,11 @@ extension regionsViewController : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
+        let edit = UIContextualAction(style: .normal, title: "Edit"){[weak self] action , view ,completion in
+            self?.performSegue(withIdentifier: "editTeamSegue", sender: indexPath.row)
+            completion(true)
+        }
         let delete = UIContextualAction(style: .destructive, title: "Delete") { [weak self] action, view, completion in
-            
             let data = self!.teams[indexPath.row]
             self!.teams.removeAll(where: {$0.team_name == data.team_name})
             self!.removePokeTeam(team: data)
@@ -61,7 +83,7 @@ extension regionsViewController : UITableViewDataSource, UITableViewDelegate{
             completion(true)
         }
 
-        return UISwipeActionsConfiguration(actions: [delete])
+        return UISwipeActionsConfiguration(actions: [delete,edit])
     }
     
 }
@@ -86,7 +108,7 @@ extension regionsViewController : PokeDelegate{
         var ref: DocumentReference? = nil
                ref = db.collection("teams").addDocument(data: [
                    "team_name": name,
-                   "user_id":1,
+                   "user_id":GeneralSettings.userUUID,
                    "pokemons": team,
                    "region_id" : self.region?.id ?? 0
                ]) { err in
@@ -101,6 +123,25 @@ extension regionsViewController : PokeDelegate{
                }
     }
     
+    func editPokeTeam(_ documentID: String, name: String, with team: [Int]) {
+       
+        let ref = db.collection("teams").document(documentID)
+
+        // Set the "capital" field of the city 'DC'
+        ref.updateData([
+            "team_name": name,
+             "pokemons": team,
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+                SCLAlertView().showError("PokeApp", subTitle: err as! String) // Erro
+            } else {
+                print("Document successfully updated")
+                SCLAlertView().showSuccess("PokeApp", subTitle: "Save Successfully")
+                self.getTeams()
+            }
+        }
+    }
 }
 
 
@@ -108,7 +149,8 @@ extension regionsViewController : PokeDelegate{
 extension regionsViewController{
     
     func getTeams(){
-        db.collection("teams").getDocuments() { (querySnapshot, err) in
+        db.collection("teams").whereField("user_id", isEqualTo: GeneralSettings.userUUID)
+            .getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

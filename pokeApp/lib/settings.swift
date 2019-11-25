@@ -10,4 +10,5 @@ import Foundation
 class GeneralSettings: NSObject {
     public static let  BASE_URL = "https://pokeapi.co/api/v2/"
     public static let DefaultIDRegion = 0
+    public static var userUUID : String = ""
 }

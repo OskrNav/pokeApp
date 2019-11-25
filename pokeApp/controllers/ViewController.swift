@@ -26,7 +26,9 @@ class ViewController: UIViewController {
            // [START auth_listener]
            handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             print("here sign in")
-            print(user)
+            print(user?.uid)
+            GeneralSettings.userUUID =  user?.uid ?? ""
+            self.performSegue(withIdentifier: "regionSegue", sender: self)
            }
     }
     override func viewWillDisappear(_ animated: Bool) {

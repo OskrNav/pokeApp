@@ -11,6 +11,7 @@ import UIKit
 
 protocol PokeDelegate {
     func savePokeTeam(_ name:String, with team:[Int])
+    func editPokeTeam(_ documentID:String , name:String, with team:[Int])
 }
 
 extension UIViewController {

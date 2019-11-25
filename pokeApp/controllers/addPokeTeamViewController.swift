@@ -18,7 +18,9 @@ class addPokeTeamViewController: UIViewController {
     var pokemons:[PokeEntry] = []
     var selectedTeam:[Int] = []
     var delegate:PokeDelegate?
-    
+    var isEdit:Bool = false
+    var nameTeam = ""
+    var documentID:String = ""
     @IBOutlet weak var nameTeamTextField:UITextField!
     @IBOutlet weak var pokeList:UICollectionView!
     
@@ -28,12 +30,18 @@ class addPokeTeamViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         getData()
         pokeList.allowsMultipleSelection = true
+        self.nameTeamTextField.text = nameTeam
     }
 
     @IBAction func SaveTeam(_ sender:UIButton){
         let validate = validation()
         if !validate.isError{
-            self.delegate?.savePokeTeam(nameTeamTextField.text!, with: selectedTeam)
+            if isEdit{
+                self.delegate?.editPokeTeam(documentID, name: nameTeamTextField.text!, with: selectedTeam)
+            }else{
+                    self.delegate?.savePokeTeam(nameTeamTextField.text!, with: selectedTeam)
+            }
+            
             self.navigationController?.popViewController(animated: true)
         }else{
             SCLAlertView().showError("PokeApp", subTitle: validate.message) // Error
@@ -70,6 +78,11 @@ extension addPokeTeamViewController : UICollectionViewDelegate , UICollectionVie
         let urlStr = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(data.id).png"
         cell.imagePoke.af_setImage(withURL: URL(string: urlStr)!)
         cell.namePoke.text = data.name
+        if isEdit{
+            if selectedTeam.contains(data.id){
+                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .top)
+            }
+        }
         return cell
     }
     
@@ -94,6 +107,9 @@ extension addPokeTeamViewController : UICollectionViewDelegate , UICollectionVie
         }else{
             return CGSize(width: 0, height: 0)
         }
+        
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
